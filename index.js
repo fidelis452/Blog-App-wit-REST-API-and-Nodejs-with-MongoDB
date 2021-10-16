@@ -1,17 +1,15 @@
-var express = require("express");
-var app = express();
-var dotenv = require("dotenv");
-var mongoose = require("mongoose");
+const express = require("express");
+const app = express();
+const dotenv = require("dotenv");
+const mongoose = require("mongoose");
 
 dotenv.config();
 
-mongoose.connect(process.env.MONGO_URL, {
+mongoose.connect("mongodb+srv://fidelis:fidelis@blog.wyny7.mongodb.net/blog?retryWrites=true&w=majority", {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true,
-})
-.then(console.log("Connected to mongo Db"))
-.catch((err)=>console.log(err));
-app.listen("3100",() =>{
+    useUnifiedTopology: true
+}).then(console.log("Connected to mongo Db"))
+  .catch((err)=>console.log(err));
+app.listen("3200", () =>{
     console.log("background is running");
 });
